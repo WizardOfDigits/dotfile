@@ -22,9 +22,11 @@ window#waybar {
 }
 
 #window {
-  margin: 8px;
+  margin: 5px;
   padding-left: 10px;
   padding-right: 10px;
+  border-radius: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 button {
@@ -132,6 +134,20 @@ button:hover {
 
 #temperature {
   color: @blue;
+}
+
+#bluetooth {
+  margin-top: 2px;
+  color: #8ecae6;
+  padding: 10px;
+}
+
+#tray {
+  margin: 5px;
+  border-radius: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 /* If workspaces is the leftmost module, omit left margin */

@@ -7,11 +7,11 @@
 
 {
   "position": "top",
-  "modules-left": ["hyprland/workspaces", "hyprland/window"],
+  "modules-left": ["hyprland/workspaces", "hyprland/window", "tray"],
   "margin": 4,
   "modules-right": [
     "pulseaudio",
-    // "bluetooth",
+    "bluetooth",
     "power-profiles-daemon",
     "battery",
     "battery#bat2",
@@ -20,7 +20,6 @@
     "memory",
     "temperature",
     "network",
-    "tray",
     "clock",
     "custom/notification",
   ],
@@ -29,7 +28,17 @@
     "format": "{class}",
     "max-length": 20,
     "rewrite": {
+      "ONLYOFFICE Desktop Editors": "<span foreground='#00aff0'> </span> OnlyOffice",
+      "MongoDB Compass": "<span foreground='#40916c'> </span> MongoDB Compass",
+      "com.viber.Viber": "<span foreground='#c77dff'> </span> Viber",
+      "Google-Chrome": "<span foreground='#f4b400'> </span> Google",
+      "Bitwarden": "<span foreground='#7289da'> </span> Bitwarden",
+      "Alacritty": "<span foreground='#0f9d58'> </span> Alacritty",
+      "discord": "<span foreground='#7289da'>󰙯 </span> Discord",
+      "code-oss": "<span foreground='#90e0ef'>󰨞 </span> Code",
       "": "<span foreground= '#458588'> </span> hyprland",
+      "vlc": "<span foreground='#fb8b24'>󰕼 </span> Vlc",
+      "zen": "<span foreground='white'>󰺕 </span> Zen",
     },
   },
 
@@ -37,8 +46,8 @@
   // |   Pulseaudio   |
   // --*---------------
   "pulseaudio": {
-    "format": "{volume} {icon} {format_source}",
-    "format-bluetooth": "{volume} {icon} {format_source}",
+    "format": "{volume}% {icon} {format_source}",
+    "format-bluetooth": "{volume}% {icon} {format_source}",
     "format-bluetooth-muted": "🚫 {icon} {format_source}",
     "format-muted": "🔇 Silence {format_source}",
     "format-source": " ",
@@ -47,7 +56,7 @@
       "headphone": "🎧",
       "phone": "",
       "car": "",
-      "default": ["󰕿", "󰖀", "󰕾"],
+      "default": ["󰕿", "󰖀", "󰕾", ""],
     },
     "on-click": "pavucontrol",
   },
