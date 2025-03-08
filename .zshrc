@@ -72,6 +72,7 @@ alias cat='bat'
 alias ls='eza --no-filesize --grid --color=always --icons=always --no-user'
 alias cd='z'
 alias lzd='lazydocker'
+alias lzg='lazygit'
 
 # -*- Shell integrations -*-
 eval "$(fzf --zsh)"
@@ -81,7 +82,6 @@ eval "$(zoxide init zsh)"
 export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git "
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="fd --type=d --hidden --strip-cwd-prefix --exclude .git"
-
 export FZF_DEFAULT_OPTS="--height 50% --layout=default --border --color=hl:#2dd4bf"
 
 # Setup fzf previews
@@ -109,3 +109,6 @@ export NVM_DIR="$HOME/.nvm"
 
 # Added by LM Studio CLI (lms)
 export PATH="$PATH:/home/whoami/.lmstudio/bin"
+
+# Generated for envman. Do not edit.
+[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
