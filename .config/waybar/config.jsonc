@@ -1,0 +1,213 @@
+//  ██████╗ ██████╗ ███╗   ██╗███████╗██╗ ██████╗          ██╗███████╗ ██████╗ ███╗   ██╗ ██████╗
+// ██╔════╝██╔═══██╗████╗  ██║██╔════╝██║██╔════╝          ██║██╔════╝██╔═══██╗████╗  ██║██╔════╝
+// ██║     ██║   ██║██╔██╗ ██║█████╗  ██║██║  ███╗         ██║███████╗██║   ██║██╔██╗ ██║██║
+// ██║     ██║   ██║██║╚██╗██║██╔══╝  ██║██║   ██║    ██   ██║╚════██║██║   ██║██║╚██╗██║██║
+// ╚██████╗╚██████╔╝██║ ╚████║██║     ██║╚██████╔╝    ╚█████╔╝███████║╚██████╔╝██║ ╚████║╚██████╗
+//  ╚═════╝ ╚═════╝ ╚═╝  ╚═══╝╚═╝     ╚═╝ ╚═════╝      ╚════╝ ╚══════╝ ╚═════╝ ╚═╝  ╚═══╝ ╚═════╝
+
+{
+  "position": "bottom",
+  "modules-left": ["hyprland/workspaces", "hyprland/window", "tray"],
+  "modules-center": ["clock", "custom/notification", "power-profiles-daemon"],
+  "margin": 4,
+  "modules-right": [
+    "pulseaudio",
+    "bluetooth",
+    "network",
+    "battery",
+    "battery#bat2",
+    "backlight",
+    "cpu",
+    "memory",
+    "temperature",
+  ],
+
+  "hyprland/window": {
+    "format": "{class}",
+    "max-length": 20,
+    "rewrite": {
+      "ONLYOFFICE Desktop Editors": "<span foreground='#00aff0'> </span> OnlyOffice",
+      "MongoDB Compass": "<span foreground='#40916c'> </span> MongoDB Compass",
+      "com.viber.Viber": "<span > </span> Viber",
+      "Google-Chrome": "<span foreground='#f4b400'> </span> Google",
+      "Bitwarden": "<span foreground='#7289da'> </span> Bitwarden",
+      "Alacritty": "<span > </span> Alacritty",
+      "discord": "<span foreground='#7289da'>󰙯 </span> Discord",
+      "code-oss": "<span foreground='#90e0ef'>󰨞 </span> Code",
+      "": "<span foreground= '#458588'> </span> hyprland",
+      "vlc": "<span foreground='#fb8b24'>󰕼 </span> Vlc",
+      "zen": "<span foreground='white'>󰺕 </span> Zen",
+    },
+  },
+
+  //-*-----------------
+  // |   Pulseaudio   |
+  // --*---------------
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-muted": "📢  {volume}%",
+    "format-bluetooth": " {volume}%",
+    "format-bluetooth-muted": "📢  {volume}%",
+    "format-icons": {
+      "headphone": "🎧 ",
+      "headset": " ",
+      "default": ["📢 "],
+    },
+    "on-click": "pavucontrol",
+  },
+
+  //-*-----------------
+  // |   bluetooth    |
+  // --*---------------
+  "bluetooth": {
+    "format": " ",
+    "format-disabled": "󰂳",
+    "format-connected": "󰂱 {num_connections}",
+    "tooltip-format": " {device_alias}",
+    "tooltip-format-connected": "{device_enumerate}",
+    "tooltip-format-enumerate-connected": " {device_alias} 󰂄{device_battery_percentage}%",
+    "tooltip": true,
+    "on-click": "blueman-manager",
+  },
+
+  //-*----------------------------
+  // |   power-profiles-daemon   |
+  // --*-------------------------
+  "power-profiles-daemon": {
+    "format": "{icon}",
+    "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+    "tooltip": true,
+    "format-icons": {
+      "default": "<span foreground='#64748b'></span>",
+      "performance": "<span foreground='#ef4444'></span>",
+      "balanced": "<span foreground='#3b82f6'> </span>",
+      "power-saver": "<span foreground='#22c55e'> </span>",
+    },
+  },
+
+  //-*-----------------
+  // |   battery       |
+  // --*---------------
+  "battery": {
+    "states": {
+      "good": 85,
+      "warning": 30,
+      "critical": 15,
+    },
+    "format": "{icon} {capacity}%",
+    "format-full": "{icon} {capacity}%",
+    "format-plugged": " {capacity}%",
+    "format-charging": " {capacity}%",
+    "format-alt": "{icon} {capacity}%",
+    "format-icons": [" ", " ", " ", " ", " "],
+    "tooltip-format": "{time}",
+    "cursor": false,
+  },
+
+  //-*------------------
+  // |   battery2      |
+  // --*---------------
+  "battery#bat2": {
+    "bat": "BAT2",
+  },
+
+  //-*------------------
+  // |   backlight      |
+  // --*----------------
+  "backlight": {
+    // "device": "acpi_video1",
+    "format": "{percent}% {icon}",
+    "format-icons": ["", "", "", "", "", "", "", "", ""],
+  },
+
+  //-*---------------------
+  // |   Temperature      |
+  // --*------------------
+  "temperature": {
+    "thermal-zone": 2,
+    "hwmon-path": [
+      "/sys/class/hwmon/hwmon2/temp1_input",
+      "/sys/class/thermal/thermal_zone0/temp",
+    ],
+    "critical-threshold": 80,
+    "format-critical": "{temperatureC}°C ",
+    "format": "{temperatureC}°C ",
+  },
+
+  //-*------------
+  // |   cpu      |
+  // --*----------
+  "cpu": {
+    "format": "{usage}% ",
+    "tooltip": true,
+  },
+
+  //-*----------------
+  // |   memory      |
+  // --*--------------
+  "memory": {
+    "format": "{}% ",
+  },
+
+  //-*----------------
+  // |   network      |
+  // --*--------------
+
+  "network": {
+    "format-wifi": "   {essid}",
+    "format-ethernet": "  Ethernet",
+    "format-linked": "  Linked (No IP)",
+    "format-disconnected": "  Disconnected",
+    "on-click": "hyprctl dispatch exec '[float; size 800 600] XDG_CURRENT_DESKTOP=GNOME gnome-control-center wifi'",
+    "tooltip-format": "{essid}",
+  },
+
+  //-*----------------
+  // |      tray      |
+  // --*--------------
+  "tray": {
+    "spacing": 10,
+  },
+
+  //-*----------------
+  // |      clock      |
+  // --*--------------
+  "clock": {
+    "format": "{:%I:%M %p}  ",
+    "format-alt": "{:%a %Y-%m-%d}",
+    "tooltip-format": "<big>{:%Y %B %p}</big>\n<tt><small>{calendar}</small></tt>",
+    "calendar": {
+      "mode": "month",
+      "format": {
+        "months": "<span color='#ff6699'><b>{}</b></span>",
+        "days": "<span color='#cdd6f4'><b>{}</b></span>",
+        "weekdays": "<span color='#7CD37C'><b>{}</b></span>",
+        "today": "<span color='#ffcc66'><b>{}</b></span>",
+      },
+    },
+  },
+
+  //-*-------------------------
+  // |custom notification      |
+  // --*-----------------------
+  "custom/notification": {
+    "tooltip": false,
+    "format": "{icon} ",
+    "format-icons": {
+      "notification": "<span foreground='red'><sup></sup></span>",
+      "none": "",
+      "dnd-notification": "<span foreground='red'><sup></sup></span>",
+      "dnd-none": "",
+      "inhibited-notification": "<span foreground='red'><sup></sup></span>",
+      "inhibited-none": "",
+      "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
+      "dnd-inhibited-none": "",
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true,
+  },
+}
